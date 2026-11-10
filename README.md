@@ -1,7 +1,4 @@
 # Takeaway
-
-English | [简体中文](README.zh-CN.md)
-
 **Android food ordering app built with Java, Kotlin, XML layouts, SQLite and Gradle.**
 
 Takeaway lets users browse regional dishes, adjust quantities from the menu or cart, and sign in to place an order. Order history shows the items, total and notes for each checkout.
