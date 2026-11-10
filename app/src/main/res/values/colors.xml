@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#17654D</color>
+    <color name="colorPrimaryDark">#114C3A</color>
+    <color name="colorAccent">#17654D</color>
+
+    <!-- 我的颜色 -->
+    <color name="colorBgWhite">#fff</color>
+    <color name="colorContent">#F3F6F2</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#192923</color>
+    <color name="muted">#52635C</color>
+    <color name="surfaceTint">#E5EFE8</color>
+</resources>

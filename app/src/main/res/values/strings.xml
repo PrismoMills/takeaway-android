@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Takeaway</string>
+    <string name="title_home">Home</string>
+    <string name="title_snack">Menu</string>
+    <string name="title_place">Cart</string>
+    <string name="title_my">Account</string>
+    <string name="snack_add_btn">+</string>
+    <string name="place_money_label">Total </string>
+    <string name="place_order_btn">Order</string>
+    <string name="place_less_label">-</string>
+    <string name="place_add_label">+</string>
+    <string name="place_order_count_init">1</string>
+    <string name="footer_label">End of menu</string>
+    <string name="login_username_edit">Username</string>
+    <string name="login_password_edit">Password</string>
+    <string name="login_btn">Sign in</string>
+    <string name="register_btn">Register</string>
+    <string name="cart_empty_label">Your cart is empty</string>
+    <string name="order_empty_label">No orders yet</string>
+    <string name="remarks_edit"></string>
+</resources>
