@@ -1,5 +1,7 @@
 # Takeaway
 
+**Android 点餐应用 · Java 为主，少量 Kotlin · XML 布局 · SQLite · Gradle**
+
 Takeaway 是一款 Android 点餐应用。用户可以浏览地方菜品，在菜单或购物车里调整数量，登录后提交订单，并查看包含菜品明细和备注的历史订单。
 
 | 首页 | 菜单 | 订单详情 |
@@ -27,4 +29,4 @@ Takeaway 是一款 Android 点餐应用。用户可以浏览地方菜品，在�
 3. 选择模拟器或 Android 设备运行 `app`。第一次使用时，可以在 Account 页新建本地测试账号。
 4. 在 Menu 选择两种菜品并调整数量，从 Cart 提交，再到 Account 的 My orders 查看订单。
 
-项目使用 Java、XML 布局与 SQLite，Gradle Wrapper 版本为 6.5。改版后的点餐流程已在 Android 9（API 28）模拟器上验证。
+Gradle Wrapper 版本为 6.5。改版后的点餐流程已在 Android 9（API 28）模拟器上验证。
