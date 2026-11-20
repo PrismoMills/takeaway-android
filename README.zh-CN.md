@@ -1,63 +1,80 @@
-# Takeaway
+<div align="center">
 
-**使用 Java、Kotlin、XML 布局和 SQLite 构建的 Android 点餐应用。**
+<h1>Takeaway</h1>
+<p><strong>浏览菜品、调整购物车、保存每一次点餐。</strong></p>
+<p>支持本地账号、个人偏好与订单历史的 Android 点餐应用。</p>
 
-Takeaway 支持浏览地方菜品、在菜单或购物车中调整数量，以及登录后提交订单。每次结算保存为一笔订单，包含菜品明细、数量、总价和备注。配送信息与口味偏好按账号保存在设备上。
+<p>
+<img alt="Android 应用" src="https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white">
+<img alt="Java 与 Kotlin" src="https://img.shields.io/badge/Code-Java_%2B_Kotlin-7F52FF">
+<img alt="SQLite 存储" src="https://img.shields.io/badge/Storage-SQLite-4479A1?logo=sqlite&logoColor=white">
+</p>
 
-| 首页 | 菜单 | 订单历史 |
+<p><a href="#界面一览">界面</a> · <a href="#从选菜到订单历史">点餐流程</a> · <a href="#在-android-上运行">构建与运行</a> · <a href="README.md">English</a></p>
+
+</div>
+
+## 界面一览
+
+| 找到想吃的菜 | 调整菜品数量 | 回看一笔订单 |
 | --- | --- | --- |
-| <img src="docs/images/home.png" width="235" alt="Takeaway 首页和推荐菜品"> | <img src="docs/images/menu.png" width="235" alt="菜单和菜品数量控制"> | <img src="docs/images/order.png" width="235" alt="同一订单中的两种菜品、备注和合计"> |
+| <img src="docs/images/home.png" width="235" alt="首页与推荐菜品"> | <img src="docs/images/menu.png" width="235" alt="菜单与数量控制"> | <img src="docs/images/order.png" width="235" alt="订单数量、备注与总价"> |
 
-## 可以做什么
+Takeaway 把浏览、加购和查看历史订单连在一起。用户可以从首页或菜单选择地方菜品，在菜单或购物车里调整数量，登录后保存订单。
 
-- 从 Home 或 Menu 浏览菜品，两个入口使用相同的菜品数据与价格。
-- 添加菜品，在菜单或购物车中调整数量。
-- 注册本地账号、登录和退出登录。
-- 提交订单，查看菜品数量、小计、总价和备注。
-- 为每个账号保存配送信息和口味偏好。
+## 从选菜到订单历史
 
-## 点餐流程
+| 🍜 浏览菜品 | 🛒 准备下单 | 📋 保存明细 |
+| --- | --- | --- |
+| 首页与菜单共用菜品数据和价格。 | 数量调整同步到购物车。 | 每次结算有独立编号，包含数量、小计、总价与备注。 |
 
-菜单中的数量变化会同步到购物车。结算时，应用生成订单编号，在同一个 SQLite 事务中保存全部菜品明细。历史订单按编号分组，显示总价由各条明细的小计累加得到。
+**账号记住你的偏好。** 注册、登录后，可以按账号保存配送信息和口味设置，也可以从 Account 页退出登录。
 
-没有订单编号的旧记录保留为单独条目。各账号的配送信息与偏好通过 SharedPreferences 保存在本地。
+**一笔订单完整保存。** 全部菜品明细在同一个 SQLite 事务中写入，历史订单按编号分组、累加各条小计。没有订单编号的旧记录保留为单独条目。
 
-## 本地运行
+## 在 Android 上运行
 
-需要 Android Studio、JDK 8、Android SDK Platform 30 和 Build Tools 30.0.3。项目使用 Gradle Wrapper 6.5。
+在 Android Studio 中打开仓库根目录，配置下列工具。
 
-1. 在 Android Studio 中打开项目根目录，配置对应的 JDK 和 SDK。
-2. 在 Windows 下构建 Debug APK。
+| 工具 | 版本 |
+| --- | --- |
+| JDK | 8 |
+| Android SDK Platform | 30 |
+| Android Build Tools | 30.0.3 |
+| Gradle Wrapper | 6.5，仓库已包含 |
 
-   ```powershell
-   .\gradlew.bat assembleDebug
-   ```
+Windows 下构建 Debug APK。
 
-   macOS 或 Linux 下运行 `sh ./gradlew assembleDebug`。
-
-3. 在模拟器或 Android 设备中运行 `app` 模块，从 Account 页创建本地测试账号。
-4. 在 Menu 选择两种菜品并调整数量，从 Cart 提交订单，再到 **Account → My orders** 查看保存结果。
-
-点餐流程已在 Android 9（API 28）模拟器上验证。
-
-## 项目结构
-
-```text
-app/src/main/java/com/example/order/activity/  应用页面与账号入口
-app/src/main/java/com/example/order/ui/        首页、菜单、购物车与账号标签页
-app/src/main/java/com/example/order/dao/       本地账号与订单存储
-app/src/main/java/com/example/order/data/      共用菜品数据
-app/src/main/res/                             布局、图标和菜品图片
-docs/images/                                  界面截图
-docs/project-delivery.md                       Sprint 安排与验收说明
+```powershell
+.\gradlew.bat assembleDebug
 ```
 
-## 项目管理与交付
+macOS 或 Linux 下运行 `sh ./gradlew assembleDebug`。在模拟器或 Android 设备中运行 `app` 模块。
+
+**体验一次完整点餐**
+
+1. 从 **Account** 创建本地测试账号。
+2. 在 **Menu** 选择两种菜品并调整数量。
+3. 从 **Cart** 提交订单。
+4. 到 **Account → My orders** 查看保存的明细和总价。
+
+这条流程已在 Android 9（API 28）模拟器上验证。
+
+<details>
+<summary><strong>技术实现与代码位置</strong></summary>
+
+应用使用 Java、少量 Kotlin、XML 布局和 SQLite。配送信息与口味偏好通过按账号区分的 SharedPreferences 保存。
+
+主要源码位于 `app/src/main/java/com/example/order/`。其中 `activity/` 放置页面入口，`ui/` 对应各标签页，`dao/` 负责账号和订单存储，`data/` 提供共用菜品数据。布局、图标和菜品图片在 `app/src/main/res/`，界面截图在 `docs/images/`。
+
+</details>
+
+## 项目背景
 
 项目从团队课程开发起步。我搭建 Android 应用框架，开发和调试注册登录、菜单、购物车及结算流程，同时用 Jira 拆解任务、跟进进度并协调验收。
 
-交付说明记录了 Sprint 1 的安排与验收条件，并展示了从选菜到查看已保存订单的实测示例。[项目交付说明](docs/project-delivery.md)
+交付说明记录了 Sprint 1 的安排、验收条件和点餐实测示例。[项目交付说明](docs/project-delivery.md)
 
-## 当前范围
+## 当前体验范围
 
-应用提供本地点餐流程，订单保存在设备的 SQLite 数据库中。支付、退款、评价和支付设置入口显示功能暂未开放的提示。餐厅服务对接、支付处理和配送安排仍待实现。
+点餐流程在本地运行，订单保存在设备的 SQLite 数据库中。支付、退款、评价和支付设置入口显示功能暂未开放的提示。餐厅服务对接、支付处理和配送安排仍待实现。
